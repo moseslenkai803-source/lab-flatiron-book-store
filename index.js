@@ -43,5 +43,28 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
+// Function to render books from the bookStore object
+function renderBooks() {
+    const bookList = document.getElementById('book-list');
+    
+    // Loop through each book in the bookStore.books array
+    bookStore.books.forEach(book => {
+        // Create a new list item
+        const li = document.createElement('li');
+        li.className = 'list-li';
+        
+        // Create and set the book content
+        li.innerHTML = `
+            <h3>${book.title}</h3>
+            <p>${book.author}</p>
+            <img src="${book.imageUrl}" alt="${book.title}">
+        `;
+        
+        // Append the book item to the book list
+        bookList.appendChild(li);
+    });
+}
+
+// Call the function when the DOM is loaded
+renderBooks();
 
